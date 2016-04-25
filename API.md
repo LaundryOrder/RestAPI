@@ -4,9 +4,13 @@ All request in json format
 
 All request url is prefixed with "protocol://hostname:port/api
 
-## Auth
+`"success":1` means success, if error occurred, `"success":0` shall be return with an error message `"msg":"failure reason"`
 
-### Login
+# Auth
+
+All request except Login and Register need a token to process, or an error message shall be returned.
+
+## Login
 
 method
 
@@ -29,11 +33,29 @@ return
 }
 ```
 
-### Register
+## Logout
 
 method
 
-`POST /register`
+`POST /logout`
+
+data
+
+`none`
+
+return
+
+```json
+{
+  "success":1
+}
+```
+
+## Register
+
+method
+
+`POST /user/new`
 
 data
 
@@ -52,9 +74,9 @@ return
 }
 ```
 
-All request below need a token to process, or a 403 with message will be returned.
+## Inquiry available time
 
-## Inquery available time
+pair timestamp with `"start"` and `"end"` means a span of time
 
 method
 
@@ -80,6 +102,43 @@ return
   ]
 }
 ```
+
+# Appointment
+
+an appointment may contains all/part of following property/object
+
+```json
+{
+  "start":140000001,
+  "end":140000002,
+  "order_time": 140000000,
+  "order_token": "asdf",
+  "status": 1,
+  "door":{}
+}
+```
+
+json above is an *appointment object* indicate a certain appointment
+
+start: appointment start time
+end: appointment end time
+order_time: time the appointment made
+order_token: token to prove the order owner
+status: order status, 1 for canceled, 2 for completed, 3 for engaging
+door: door service, contains following property
+
+```json
+{
+  "start": 14000001,
+  "end": 14000002,
+  "order_time": 14000000,
+  "phone": "13800013800",
+  "address": "Foo, St. Bar"
+}
+```
+
+json above is a *door object* indicate a certain door service
+
 ## Make an appointment
 
 method
@@ -88,18 +147,7 @@ method
 
 data
 
-```json
-{
-  "start": 140000002,
-  "end": 1400000003,
-  "door": {
-    "start": 1400000001,
-    "end": 1400000006,
-    "phone": 13800138000,
-    "addr": "foo, St. bar"
-  }
-}
-```
+an *appointment object* without `"order_token", "status"`
 
 return
 
@@ -132,28 +180,18 @@ return
 
 method
 
-`PATCH /order/233`
+`PUT /order/233`
 
 data
 
-```json
-{
-  "start": 140000002,
-  "end": 1400000003,
-  "door": {
-    "start": 1400000001,
-    "end": 1400000006,
-    "phone": 13800138000,
-    "addr": "foo, St. bar"
-  }
-}
-```
+any property/object(s) of an *appointment object* without `"order_token", "order_time", "status"`
 
 return
 
 ```json
 {
-  "success": 1
+  "success": 1,
+  "order_id": 233
 }
 ```
 
@@ -169,17 +207,7 @@ data
 
 return
 
-```json
-{
-  "start": 140000002,
-  "end": 1400000003,
-  "door": {
-    "start": 1400000001,
-    "end": 1400000006,
-    "phone": 13800138000,
-    "addr": "foo, St. bar"
-}
-```
+if an *appointment object*
 
 ## Get appointment list
 
@@ -192,19 +220,10 @@ data
 `none`
 
 return
+
 ```json
 { 
-  "appointments":[
-  {
-    "status": "completed",
-    "start": 140000002,
-    "end": 1400000003,
-    "door": {
-      "start": 1400000001,
-      "end": 1400000006,
-      "phone": 13800138000,
-      "addr": "foo, St. bar"
-    }
-  }]
+  "orders":[]
 }
 ```
+`"orders"` is a list of *appointment object*
