@@ -8,13 +8,15 @@ All request url is prefixed with "protocol://hostname:port/api
 
 # Auth
 
-All request except Login and Register need a token to process, or an error message shall be returned.
+All request except Login or Register need a token to process, or an error message shall be returned.
 
-## Login
+Token shall be sent in http header, Authorization: Token XXX
+
+## Login or Register
 
 method
 
-`POST /login`
+`POST /token`
 
 data
 
@@ -37,7 +39,7 @@ return
 
 method
 
-`POST /logout`
+`GET /revoke`
 
 data
 
@@ -48,29 +50,6 @@ return
 ```json
 {
   "success":1
-}
-```
-
-## Register
-
-method
-
-`POST /user/new`
-
-data
-
-```json
-{
-  "username":"...",
-  "password":"..."
-}
-```
-
-return
-
-```json
-{
-  "token":"..."
 }
 ```
 
