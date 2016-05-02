@@ -100,10 +100,15 @@ an appointment may contains all/part of following property/object
 json above is an *appointment object* indicate a certain appointment
 
 start: appointment start time
+
 end: appointment end time
+
 order_time: time the appointment made
+
 order_token: token to prove the order owner
+
 status: order status, 1 for canceled, 2 for completed, 3 for engaging
+
 door: door service, contains following property
 
 ```json
@@ -117,6 +122,16 @@ door: door service, contains following property
 ```
 
 json above is a *door object* indicate a certain door service
+
+start: door service start time
+
+end: door service end time
+
+order_time: time the door service order made
+
+phone: phone number of the customer
+
+address: address of the customer
 
 ## Make an appointment
 
