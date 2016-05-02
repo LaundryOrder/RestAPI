@@ -99,7 +99,7 @@ an appointment may contains all/part of following property/object
 
 json above is an *appointment object* indicate a certain appointment
 
-start: appointment start time
+start: appointment start time, in unix timestamp format(same with following time)
 
 end: appointment end time
 
