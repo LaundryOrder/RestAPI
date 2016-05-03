@@ -141,16 +141,11 @@ method
 
 data
 
-an *appointment object* without `"order_token", "status"`
+an *appointment object* that only contain "`door`", and *door object* can only contain `"phone", "address"`
 
 return
 
-```json
-{
-  "success": 1,
-  "order_id": 233
-}
-```
+*appointment object*
 
 ## Cancel an appointment
 
