@@ -59,7 +59,7 @@ pair timestamp with `"start"` and `"end"` means a span of time
 
 method
 
-`GET /available`
+`GET /avail`
 
 data
 
