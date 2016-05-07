@@ -79,6 +79,7 @@ an appointment may contains all/part of following property/object
 
 ```json
 {
+  "order_id": 233
   "start":140000001,
   "end":140000002,
   "machine":1,
@@ -90,6 +91,8 @@ an appointment may contains all/part of following property/object
 ```
 
 json above is an *appointment object* indicate a certain appointment
+
+order_id: the id of the order
 
 start: appointment start time, in unix timestamp format(same with following time)
 
@@ -147,6 +150,8 @@ method
 
 `DELETE /order/233`
 
+where 233 is the order id
+
 data
 
 `none`
@@ -164,6 +169,8 @@ return
 method
 
 `PUT /order/233`
+
+where 233 is the order id
 
 data
 
