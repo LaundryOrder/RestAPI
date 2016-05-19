@@ -79,7 +79,7 @@ an appointment may contains all/part of following property/object
 
 ```json
 {
-  "order_id": 233
+  "order_id": 233,
   "start":140000001,
   "end":140000002,
   "machine":1,
