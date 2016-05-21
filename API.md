@@ -178,12 +178,7 @@ any property/object(s) of an *appointment object* without `"order_token", "order
 
 return
 
-```json
-{
-  "success": 1,
-  "order_id": 233
-}
-```
+*appointment object*
 
 ## Get info of an appointment
 
