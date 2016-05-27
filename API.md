@@ -178,12 +178,7 @@ an *appointment object* that only contain "`door`", and *door object* can only c
 
 return
 
-```json
-{
-  "success": 1,
-  "order_id": 233
-}
-```
+*appointment object*
 
 ## Get info of an appointment
 
