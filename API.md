@@ -10,7 +10,7 @@ All request url is prefixed with "protocol://hostname:port/api
 
 All request except Login or Register need a token to process, or an error message shall be returned.
 
-Token shall be sent in http header, Authorization: Token XXX
+Token shall be sent in http header: `Authorization: Token XXX`
 
 ## Login or Register
 
