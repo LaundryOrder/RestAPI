@@ -55,7 +55,7 @@ return
 
 ## Inquiry available time
 
-pair timestamp with `"start"` and `"end"` means a span of time
+a timestamp that indicate current estimated time
 
 method
 
@@ -174,7 +174,7 @@ where 233 is the order id
 
 data
 
-any property/object(s) of an *appointment object* without `"order_token", "order_time", "status"`
+an *appointment object* that only contain "`door`", and *door object* can only contain `"phone", "address"`
 
 return
 
