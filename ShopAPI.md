@@ -11,7 +11,8 @@ data
 ```json
 {
   "order_token":"XXX",
-  "token":"YYY"
+  "token":"bgm38"
 }
 ```
 
+XXX is the token of order
